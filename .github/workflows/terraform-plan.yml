@@ -14,7 +14,7 @@ jobs:
       ARM_CLIENT_SECRET: ${{secrets.MYSUPERSECRETE}}
       ARM_SUBSCRIPTION_ID: ${{secrets.MYSBSCRIPTIONID}}
       ARM_TENANT_ID: ${{secrets.ARM_TENANT_ID}}
-    
+
     Steps:
       - uses: actions/checkout@v2
 
