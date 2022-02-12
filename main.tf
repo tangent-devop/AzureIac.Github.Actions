@@ -14,7 +14,7 @@ terraform {
 
 resource "azurerm_resource_group" "dev" {
   name     = "rg-github-tf-brd"
-  location = "UK South"
+  location = "UK west"
 }
 
 resource "azurerm_app_service_plan" "dev" {
