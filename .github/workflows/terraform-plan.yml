@@ -1,20 +1,31 @@
---- 
-jobs:
-  terraform: 
-    env: 
-      ARM_CLIENT_ID: "${{secrets.ARM_CLIENT_ID}}"
-      ARM_CLIENT_SECRET: "${{secrets.MYSUPERSECRETE}}"
-      ARM_SUBSCRIPTION_ID: "${{secrets.MYSBSCRIPTIONID}}"
-      ARM_TENANT_ID: "${{secrets.ARM_TENANT_ID}}"
-    runs-on: ubuntu-latest
-    steps: 
-      ? "-name"
-      : "Terraform Plan run terraform plan"
-      ? "-uses"
-      : actions/checkout@v2
-name: "Terraform plan"
-true: 
-  push: 
-    branches: 
-      - FeatureBranch1
+name: Terraform plan
 
+on:
+  push:
+   branches:
+     - main
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+
+    env:
+      ARM_CLIENT_ID: ${{secrets.ARM_CLIENT_ID}}
+      ARM_CLIENT_SECRET: ${{secrets.MYSUPERSECRETE}}
+      ARM_SUBSCRIPTION_ID: ${{secrets.MYSBSCRIPTIONID}}
+      ARM_TENANT_ID: ${{secrets.ARM_TENANT_ID}}
+    
+    steps:
+      - uses: actions/checkout@v2
+
+      -name: Setup Terraform
+       uses hashicorp/setup-terraform@v1
+
+      -name: Terraform Init
+       run terraform init
+
+      -name: Terraform Format
+       run terraform fmr -check
+
+      -name: Terraform Plan
+       uses terraform plan
