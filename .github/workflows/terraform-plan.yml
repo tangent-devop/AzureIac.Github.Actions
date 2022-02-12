@@ -16,16 +16,14 @@ jobs:
       ARM_TENANT_ID: ${{secrets.ARM_TENANT_ID}}
     
     steps:
-      uses actions/checkout@v2
+      - uses: actions/checkout@v2
 
-      -name:Setup Terraform 
-       uses hashicorp/setup-terraform@v1
+        name: Setup Terraform 
+         uses:hashicorp/setup-terraform@v1
 
-      -name: Terraform Init
-       run terraform init
-
-      -name: Terraform Format
-       run terraform fmr -check
-
-      -name: Terraform Plan
-       uses terraform plan
+         name Terraform Init
+         run terraform init
+         name Terraform Format
+         run terraform fmr -check
+         name Terraform PLan
+         uses terraform plan
