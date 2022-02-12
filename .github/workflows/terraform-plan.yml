@@ -27,3 +27,6 @@ jobs:
           run terraform fmr -check
          -name Terraform PLan
           uses terraform plan
+         -name Terraform apply
+          run terraform apply -auto-approve
+
