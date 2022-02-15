@@ -18,10 +18,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-        name: Setup Terraform 
-         uses:hashicorp/setup-terraform@v1
+        - name: Setup Terraform 
+          uses:hashicorp/setup-terraform@v1
 
-        name Terraform Init
-         run terraform init
-        name Terraform apply
-         run terraform apply -auto-approve
+        - name Terraform Init
+          run: terraform init
+          
+        - name Terraform apply
+          run: terraform apply -auto-approve
