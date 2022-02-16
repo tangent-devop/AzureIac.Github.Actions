@@ -21,11 +21,6 @@ jobs:
         name: Setup Terraform 
          uses:hashicorp/setup-terraform@v1
 
-         -name Terraform Init
-          run terraform init
-         -name Terraform Format
-          run terraform fmr -check
-         -name Terraform PLan
-          uses terraform plan
-         -name Terraform apply
-          run terraform apply -auto-approve
+        name: Terraform Init
+         run: terraform init
+         
